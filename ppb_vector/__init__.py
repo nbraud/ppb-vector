@@ -18,7 +18,7 @@ VectorLike = typing.Union[
 ]
 
 
-@dataclass(eq=False, frozen=True, init=False, repr=False)
+@dataclass(eq=False, frozen=True, unsafe_hash=True, init=False, repr=False)
 class Vector:
     """The immutable, 2D vector class of the PursuedPyBear project.
 
