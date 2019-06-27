@@ -1,6 +1,7 @@
 from typing import Sequence, Union
 
 import hypothesis.strategies as st
+from frozendict import frozendict  # type: ignore
 
 from ppb_vector import Vector, VectorLike
 
@@ -86,4 +87,9 @@ UNARY_SCALAR_OPS = frozenset({
 
 # Sequence of vector-likes equivalent to the input vector (def. to the x vector)
 def vector_likes(v: Vector = UNIT_X) -> Sequence[VectorLike]:
-    return ((v.x, v.y), [v.x, v.y], {"x": v.x, "y": v.y})
+    return (
+        (v.x, v.y),
+        [v.x, v.y],
+        {"x": v.x, "y": v.y},
+        frozendict({"x": v.x, "y": v.y}),
+    )

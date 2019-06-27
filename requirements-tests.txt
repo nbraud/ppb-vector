@@ -1,3 +1,4 @@
+frozendict
 hypothesis
 perf
 pympler>=0.7; implementation_name == 'cpython'
