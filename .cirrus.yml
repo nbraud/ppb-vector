@@ -67,7 +67,6 @@ FreeBSD_task:
     image_family: freebsd-12-1
   env:
     matrix:
-      - PYTHON: 3.6
       - PYTHON: 3.7
       - PYTHON: 3.8
   install_script:
@@ -89,11 +88,9 @@ task:
   skip: $CIRRUS_BRANCH =~ '.*\.tmp'
   env:
     matrix:
-      - IMAGE: python:3.6-slim
       - IMAGE: python:3.7-slim
       - IMAGE: python:3.8-slim
       - IMAGE: python:3.9-rc-buster
-      - IMAGE: pypy:3.6-slim
   name: "Linux $IMAGE"
   allow_failures: $IMAGE =~ '.*-rc-.*'
   container:
@@ -116,7 +113,6 @@ macOS_task:
   env:
     PATH: ${HOME}/.pyenv/shims:${PATH}
     matrix:
-      - PYTHON: 3.6.9
       - PYTHON: 3.7.5
       - PYTHON: 3.8.0
   install_script:
@@ -139,7 +135,6 @@ task:
   skip: $CIRRUS_BRANCH =~ '.*\.tmp'
   env:
     matrix:
-      - IMAGE: python:3.6-windowsservercore
       - IMAGE: python:3.7-windowsservercore
       - IMAGE: python:3.8-windowsservercore
       - IMAGE: python:3.9-rc-windowsservercore
